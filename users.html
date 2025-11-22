@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <header class="cb:hidden" data-include="./components/navbarTwo.html"></header>
+
+    <!-- Main Layout -->
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="fixed bg-gray-800 w-60 hidden cb:block" data-include="./components/sidebar.html"></aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full mt-[100px] cb:mt-10 cb:ml-60 px-4 sm:px-6 lg:px-4 pb-10"> <!-- Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+                <div>
+                    <h1 class="text-3xl font-semibold">users</h1>
+                    <p class="text-xl text-gray-600">Manage users</p>
+                </div>
+
+                <!-- <button id="add-user-btn"
+                    class="w-fit px-4 py-2 text-lg font-semibold bg-green-600 rounded-lg text-white hover:bg-green-700 transition">
+                    Add User
+                </button> -->
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-6 flex flex-col items-start">
+                    <div class="text-gray-500 mb-2 text-xl">Total users</div>
+                    <div id="total-users-card" class="text-3xl font-semibold text-blue-800">0</div>
+                </div>
+            </div>
+
+            <!-- user tables -->
+            <div class="overflow-auto rounded-lg shadow-sm border border-gray-200 bg-white">
+                <table id="users-table" class="min-w-full divide-y divide-gray-200 text-lg text-gray-700">
+                    <thead class="bg-gray-100 text-gray-800 uppercase text-lg cb:text-[15px]">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-semibold">Id</th>
+                            <th class="px-6 py-3 text-left font-semibold">Name</th>
+                            <th class="px-6 py-3 text-left font-semibold">Email</th>
+                            <th class="px-6 py-3 text-left font-semibold">Roles</th>
+                            <th class="px-6 py-3 text-left font-semibold">Created At</th>
+                            <th class="px-6 py-3 text-left font-semibold">Updated At</th>
+                            <!-- <th class="px-6 py-3"></th> -->
+                        </tr>
+                    </thead>
+
+                    <tbody class="bg-white divide-y divide-gray-100 cb:text-[20px]">
+                        <!-- <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-3">1</td>
+                            <td class="px-6 py-3">Admin</td>
+                            <td class="px-6 py-3">admin@gmail.com</td>
+                            <td class="px-6 py-3">['ADMIN','USER','STAFF']</td>
+                            <td class="px-6 py-3">10-12-2025</td>
+                            <td class="px-6 py-3">15-12-2025</td>
+                            <td class="px-6 py-3 text-right">
+                                <button
+                                    class="threeDot hover:bg-gray-200 py-1 px-1 text-center rounded-md cursor-pointer">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <script src="/assets/js/include.js"></script>
+        <script type="module" src="/assets/js/api/users.js"></script>
+        <!-- <script src="/assets/js/popUpModel.js"></script> -->
+</body>
+
+</html>

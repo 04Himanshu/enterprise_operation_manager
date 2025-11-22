@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-cb: 52rem;
+  --breakpoint-cd: 78rem;
+  --breakpoint-ca: 28rem;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ===== Custom Dark Theme ===== */
+.dark {
+  @apply bg-[#111b2e] text-gray-100; /* overall background + base text */
+}
+
+/* Sidebar */
+.dark .navBar {
+  @apply bg-[#b92f6d] text-gray-200;
+}
+/* #0b1120 */
+.dark .sidebar a {
+  @apply text-gray-300 hover:bg-[#1e293b] hover:text-white transition-colors;
+}
+
+.dark .sidebar .active {
+  @apply bg-[#1e293b] text-white;
+}
+
+/* Dashboard content area */
+.dark .dashboard {
+  @apply bg-[#0f172a] text-gray-100;
+}
+
+/* Cards */
+.dark .card {
+  @apply bg-[#111827] text-gray-100 border border-[#1e293b] rounded-lg;
+}
+
+/* Headings and text */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p {
+  @apply text-gray-200;
+}
+
+/* Metric Numbers (like 4, 5, 1) */
+.dark .metric-blue {
+  @apply text-blue-400;
+}
+
+.dark .metric-green {
+  @apply text-green-400;
+}
+
+.dark .metric-red {
+  @apply text-red-400;
+}
+
+/* Buttons */
+.dark .btn {
+  @apply text-white font-semibold rounded-lg px-4 py-2 transition-colors;
+}
+
+.dark .btn-blue {
+  @apply bg-blue-600 hover:bg-blue-700;
+}
+
+.dark .btn-green {
+  @apply bg-green-600 hover:bg-green-700;
+}
+
+.dark .btn-orange {
+  @apply bg-orange-500 hover:bg-orange-600;
+}
+
+/* Quick Actions section */
+.dark .quick-actions {
+  @apply text-gray-300;
+}

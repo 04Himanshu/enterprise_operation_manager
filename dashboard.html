@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 min-h-screen text-gray-800">
+
+  <!-- Navbar -->
+  <header class="cb:hidden" data-include="./components/navbarTwo.html"></header>
+
+  <!-- Main Layout -->
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="fixed h-[calc(100vh)] w-60 bg-gray-800 hidden cb:block"
+      data-include="./components/sidebar.html">
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 mt-[100px] cb:mt-10 cb:ml-60 px-4 sm:px-6 lg:px-8 pb-10">
+
+      <!-- Page Header -->
+      <div class="mb-6">
+        <h1 class="text-3xl font-semibold mb-1">Welcome, Admin</h1>
+        <p class="text-gray-600 text-sm sm:text-xl">Quick overview of business operations</p>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white rounded-lg shadow p-6">
+          <div id="" class="text-gray-500 mb-2 text-xl">Total Customers</div>
+          <div id="total-customers" class="text-3xl font-semibold text-gray-800">0</div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-gray-500 mb-2 text-xl">Inventory Items</div>
+          <div id="total-inventory" class="text-3xl font-semibold text-green-600">0</div>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-gray-500 mb-2 text-xl">Pending Orders</div>
+          <div class="text-3xl font-semibold text-red-600">1</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold mb-3">Quick Actions</h2>
+        <div class="flex flex-wrap gap-4">
+          <button id="add-customer-btn"
+            class="text-lg flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-800 text-white px-5 py-2 rounded-lg font-semibold transition">
+            <i class="fa-solid fa-plus mr-2"></i>Add Customer
+          </button>
+          <button id="add-inventory-btn"
+            class="text-lg flex-1 min-w-[200px] bg-green-600 hover:bg-green-800 text-white px-5 py-2 rounded-lg font-semibold transition">
+            Add Inventory
+          </button>
+          <!-- <button id="order-btn"
+            class="text-lg flex-1 min-w-[200px] bg-yellow-500 hover:bg-yellow-700 text-white px-5 py-2 rounded-lg font-semibold transition">
+            Create Order
+          </button> -->
+        </div>
+      </div>
+
+      <!--Add inventory popups -->
+      <div>
+        <div id="overlay" class="hidden z-30 absolute inset-0"></div>
+        <div id="popup-inventory"
+          class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow p-8 rounded-lg w-fit cb:w-[800px] z-40">
+
+          <span id="close-popup"
+            class="absolute right-0 top-0 px-2 font-bold cursor-pointer text-2xl bg-green-200 rounded-tr-lg hover:bg-red-200">&times</span>
+
+          <h1 class="text-2xl font-semibold">Add New Product</h1>
+
+          <p class="text-xl text-gray-600 mt-0.5">Enter the product details below.</p>
+
+          <form id="add-inventory-form">
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="name">Product Name</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="name" id="name">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="category">Category</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="category" id="category">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="stockQuantity">Stock Quantity</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="stockQuantity"
+                id="stockQuantity">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="price">Price</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="number" name="price" id="price">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="description">Description</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="description"
+                id="description">
+            </div>
+            <div class="space-x-2 mt-3 text-center">
+              <button
+                class="border border-gray-300 px-4 py-2 text-lg rounded-lg hover:bg-gray-200 font-semibold cursor-pointer">Cancel</button>
+              <button class="bg-black text-white p-2 text-lg rounded-lg  font-semibold cursor-pointer">Add
+                Product</button>
+          </form>
+        </div>
+      </div>
+
+      <!--Add Customer popups -->
+      <div>
+        <!-- Overlay -->
+        <div id="customer-overlay" class="hidden opacity-20 z-30 fixed inset-0"></div>
+
+        <!-- Popup -->
+        <div id="add-customer-popup"
+          class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow p-8 rounded-lg w-fit cb:w-[800px] z-40">
+
+          <span id="customer-close-popup"
+            class="absolute right-0 top-0 px-2 m-2 cursor-pointer text-4xl text-gray-400 hover:text-gray-800">&times;</span>
+
+          <h1 class="text-2xl font-semibold">Add New Customer</h1>
+          <p class="text-xl text-gray-600 mt-0.5">Enter customer details below.</p>
+          <form id="addCustomerForm">
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="">name</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="name" id="name">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="">username</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="email" name="username" id="username">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="">phone</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="tel" name="tel" id="phone">
+            </div>
+            <div class="flex flex-col mt-3">
+              <label class="text-xl font-medium" for="">address</label>
+              <input class="bg-gray-100 text-lg font-medium rounded-lg p-2" type="text" name="address" id="address">
+            </div>
+
+            <div class="space-x-2 mt-3 text-center">
+              <button
+                class="border border-gray-300 px-4 py-2 text-lg rounded-lg hover:bg-gray-200 font-semibold cursor-pointer">Cancel</button>
+              <button id="submit-customer-btn"
+                class="bg-black text-white p-2 text-lg rounded-lg  font-semibold cursor-pointer">Add
+                Customer</button>
+          </form>
+        </div>
+      </div>
+
+      <!--create order popups -->
+      <!--  backdrop-blur-sm -->
+
+    </main>
+
+  </div>
+
+  <script src="./assets/js/include.js"></script>
+  <script src="assets/js/popUpModel.js"></script>
+  <script type="module" src="/assets/js/api/dashBoard.js"></script>
+</body>
+
+</html>

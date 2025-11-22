@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOM Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="fixed flex items-center justify-between w-full bg-gray-800 text-white shadow-md p-4 md:p-6">
+
+        <!-- Brand / Logo -->
+        <div class="flex items-center space-x-2">
+            <h1 class="hidden ca:block text-xl font-bold tracking-wide">
+                Enterprise Operations Manager
+            </h1>
+            <h1 class="ca:hidden text-xl font-bold">EOM</h1>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <!-- <div class="hidden cb:flex items-center space-x-6 text-lg font-semibold">
+            <button onclick="logOut()" class="hover:text-gray-300 transition-colors">Logout</button>
+            <button class="hover:text-gray-300 transition-colors">Theme</button>
+        </div> -->
+
+        <!-- Mobile Menu Button -->
+        <button id="open-menu" onclick="handleToggle()"
+            class="flex cb:hidden items-center justify-center p-2 rounded-md hover:bg-gray-700 transition">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+
+    </nav>
+
+    <!-- Mobile Sidebar / Overlay Menu (hidden by default, toggled with JS) -->
+    <div id="close-navbar" class="hidden fixed inset-0 z-50 bg-white cb:hidden">
+        <div class="flex items-center justify-between p-5 border-b shadow-sm">
+            <h1 class="text-2xl font-bold text-gray-900">EOM</h1>
+            <button id="close-menu" onclick="handleToggle()" class=" text-gray-800 hover:text-gray-600 transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 mt-6 text-lg font-semibold px-6 text-gray-800">
+            <a href="customers.html" class="p-2 rounded-lg hover:bg-gray-100 transition">Customers</a>
+            <a href="inventory.html" class="p-2 rounded-lg hover:bg-gray-100 transition">Inventory</a>
+            <a href="orders.html" class="p-2 rounded-lg hover:bg-gray-100 transition">Orders</a>
+            <a href="users.html" class="p-2 rounded-lg hover:bg-gray-100 transition">Users</a>
+            <button class="p-2 rounded-lg text-white bg-red-400 hover:bg-red-600 transition cursor-pointer">Logout</button>
+        </div>
+    </div>
+    <script type="module" src="/assets/js/api/auth.js"></script>
+</body>
+
+</html>

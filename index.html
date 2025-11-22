@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Operations Manager</title>
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav data-include="./components/navbar.html"></nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-800 text-white py-24">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4">Unify Your Enterprise Operations</h2>
+            <p class="text-lg mb-8">
+                Manage Customers, Inventory, and Orders in One Secure, Intelligent Platform
+            </p>
+            <a href="#solution"
+                class="bg-gray-300 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100">
+                Explore Solution
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="max-w-7xl mx-auto px-6 py-16">
+        <h3 class="text-3xl font-semibold text-gray-950 mb-6">Challenges Enterprises Face</h3>
+        <ul class="list-disc pl-6 space-y-3 text-gray-700 text-xl">
+            <li>Difficulty managing customers, inventory, and orders in a unified system.</li>
+            <li>Manual processes leading to stock inaccuracies and order delays.</li>
+            <li>Lack of role-based access control causing security risks.</li>
+            <li>Limited real-time visibility impacting decision-making.</li>
+            <li>No automation for stock updates or low-inventory alerts.</li>
+            <li>Increased inefficiencies, costs, and reduced customer satisfaction.</li>
+        </ul>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="bg-gray-100 py-16 text-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-gray-950 mb-6">Our Integrated Solution</h3>
+            <p class="text-gray-700 mb-6">
+                The Enterprise Operations Manager (EOM) streamlines business workflows by centralizing
+                customer, order, and inventory management with real-time dashboards and secure access.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h4 class="text-xl font-semibold mb-3 text-gray-950">Core Features</h4>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Centralized management of customers, inventory, and orders.</li>
+                        <li>Secure authentication & role-based permissions.</li>
+                        <li>Automated stock updates & low-inventory alerts.</li>
+                        <li>Real-time dashboards for key metrics.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h4 class="text-xl font-semibold mb-3 text-gray-950">Tech Stack</h4>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li><strong>Frontend:</strong> Thymeleaf, Bootstrap/Tailwind, Responsive UI</li>
+                        <li><strong>Backend:</strong> Spring Boot, REST APIs, Spring Security</li>
+                        <li><strong>Database:</strong> MySQL with Spring Data JPA</li>
+                        <li><strong>Security:</strong> Role-based Access & Secure Sessions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section id="architecture" class="max-w-7xl mx-auto px-6 py-16 text-xl">
+        <h3 class="text-3xl font-semibold text-gray-950 mb-6">System Architecture Overview</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <h4 class="text-xl font-semibold mb-3 text-gray-950">Frontend</h4>
+                <p>Dynamic web interface using Thymeleaf templates and responsive design.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <h4 class="text-xl font-semibold mb-3 text-gray-950">Backend</h4>
+                <p>Spring Boot APIs handling business logic, security, and data operations.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <h4 class="text-xl font-semibold mb-3 text-gray-950">Database</h4>
+                <p>MySQL database ensuring data consistency and transactional operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Enhancements -->
+    <section id="enhancements" class="bg-gray-100 py-16 text-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-3xl font-semibold text-gray-900 mb-6">Future Enhancements</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-gray-950 mb-2">Security & Authentication</h4>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Two-Factor Authentication (2FA)</li>
+                        <li>Single Sign-On (SSO) Integration</li>
+                        <li>Audit Logging & IP-based Access Control</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-950 mb-2">Analytics & Management</h4>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li>Customizable dashboards with charts & insights</li>
+                        <li>Report exports to PDF/Excel</li>
+                        <li>AI-driven inventory prediction & customer segmentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div data-include="./components/footer.html"></div>
+
+    <script src="assets/js/include.js"></script>
+    <!-- <script src="/assets/js/theme.js"></script> -->
+</body>
+
+</html>

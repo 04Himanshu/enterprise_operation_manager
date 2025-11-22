@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <header class="cb:hidden" data-include="./components/navbarTwo.html"></header>
+
+    <!-- Main Layout -->
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="fixed bg-gray-800 w-60 hidden cb:block" data-include="./components/sidebar.html"></aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full mt-[100px] cb:mt-10 cb:ml-60 px-4 sm:px-6 lg:px-4 pb-10">
+
+            <!-- Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+                <div>
+                    <h1 class="text-3xl font-semibold">Customers</h1>
+                    <p class="text-xl text-gray-600">Manage your customers database</p>
+                </div>
+
+                <button id="add-customer-btn"
+                    class="px-4 py-2 bg-green-600 text-white text-lg font-semibold rounded-lg hover:bg-green-700 transition">
+                    Add Customer
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-6 flex flex-col items-start">
+                    <div class="text-xl text-gray-500 mb-2">Total Customers</div>
+                    <div id="total-customers" class="text-3xl font-semibold text-gray-800">0</div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="bg-white w-full rounded-lg flex items-center mb-6 shadow-sm">
+                <i class="fa-solid fa-magnifying-glass p-3 text-gray-400"></i>
+                <input class="flex-1 p-3 text-lg focus:outline-none rounded-r-lg" type="search"
+                    placeholder="Search customers..." />
+            </div>
+
+            <!-- Customers Table -->
+            <div class="overflow-auto rounded-lg shadow-sm border border-gray-200 bg-white">
+                <table id="customers-table" class="min-w-full divide-y divide-gray-200 text-lg text-gray-700">
+                    <thead class="bg-gray-100 text-gray-800 uppercase text-lg cb:text-[15px]">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-semibold">Customer</th>
+                            <th class="px-6 py-3 text-left font-semibold">Email</th>
+                            <th class="px-6 py-3 text-left font-semibold">Contact</th>
+                            <th class="px-6 py-3 text-left font-semibold">Address</th>
+                            <th class="px-6 py-3"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="bg-white divide-y divide-gray-100 cb:text-[20px]"></tbody>
+                </table>
+            </div>
+
+            <!-- Add Customer Popup -->
+            <div>
+                <div id="customer-overlay" class="hidden fixed inset-0 bg-gray-100 opacity-20 z-30"></div>
+
+                <div id="add-customer-popup"
+                    class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow p-8 rounded-lg w-fit cb:w-[800px] z-40">
+
+                    <span id="customer-close-popup"
+                        class="absolute top-0 right-0 m-2 px-2 text-4xl text-gray-400 cursor-pointer hover:text-gray-800">&times;</span>
+
+                    <h1 class="text-2xl font-semibold">Add New Customer</h1>
+                    <p class="text-xl text-gray-600 mt-0.5">Enter customer details below.</p>
+
+                    <form id="addCustomerForm">
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">name</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="text" name="name"
+                                id="name">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">username</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="email" name="username"
+                                id="username">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">phone</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="tel" name="tel"
+                                id="phone">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">address</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="text" name="address"
+                                id="address">
+                        </div>
+
+                        <div class="mt-3 text-center space-x-2">
+                            <button
+                                class="px-4 py-2 text-lg font-semibold border border-gray-300 rounded-lg hover:bg-gray-200 cursor-pointer">
+                                Cancel
+                            </button>
+                            <button id="submit-customer-btn"
+                                class="px-4 py-2 text-lg font-semibold bg-black text-white rounded-lg cursor-pointer">
+                                Add Customer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Three dots popup -->
+            <div id="dots-overlay" class="hidden absolute inset-0 z-30"></div>
+
+            <div
+                class="threeDot-popup hidden p-2 cb:p-3 w-fit space-y-2 text-sm cb:text-xl bg-white border border-gray-200 rounded-lg shadow-sm z-40">
+                <p id="edit-customer-btn" class="p-2 rounded-lg cursor-pointer hover:bg-gray-200">Edit Customer</p>
+                <p id="delete-customer-btn" class="p-2 rounded-lg cursor-pointer text-red-600 hover:bg-gray-200">
+                    Delete Customer
+                </p>
+            </div>
+
+            <!-- Update Customer Popup -->
+            <div>
+                <div id="update-customer-overlay" class="hidden fixed inset-0 z-40"></div>
+
+                <div id="update-customer-popup"
+                    class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow p-8 rounded-lg w-fit cb:w-[800px] z-50">
+
+                    <span id="close-update-popup"
+                        class="absolute top-0 right-0 m-2 px-2 text-4xl text-gray-400 cursor-pointer hover:text-gray-800">&times;</span>
+
+                    <h1 class="text-2xl font-semibold">Edit Customer</h1>
+                    <p class="text-xl text-gray-600 mt-0.5">Update the customer details below.</p>
+
+                    <form id="update-customer-form">
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">name</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="text" name="name"
+                                id="name">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">email</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="email" name="email"
+                                id="email">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">phone</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="tel" name="phone"
+                                id="phone">
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-xl font-medium">address</label>
+                            <input class="p-2 text-lg font-medium bg-gray-100 rounded-lg" type="text" name="address"
+                                id="address">
+                        </div>
+
+                        <div class="mt-3 text-center space-x-2">
+                            <button
+                                class="px-4 py-2 text-lg font-semibold border border-gray-300 rounded-lg hover:bg-gray-200 cursor-pointer">
+                                Cancel
+                            </button>
+                            <button id="save-customer-btn"
+                                class="px-4 py-2 text-lg font-semibold bg-black text-white rounded-lg cursor-pointer">
+                                Save Customer
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="assets/js/popUpModel.js"></script>
+    <script src="/assets/js/include.js"></script>
+    <script type="module" src="/assets/js/api/customers.js"></script>
+
+</body>
+
+</html>

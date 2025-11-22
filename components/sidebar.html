@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+</head>
+
+<body>
+    <aside class="hidden cb:block w-60 bg-gray-800 h-screen left-0 top-0">
+        <h1 class="text-white font-bold text-xl px-4 py-2 mt-2 ml-3">Enterprise <br>Operations <br>Manager</h1>
+        <div class="bg-gray-700 w-60 h-0.5"></div>
+        <nav class="mt-6 p-4 space-y-5 text-xl text-gray-300">
+            <a href="dashboard.html" class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg">
+                Dashboard
+            </a>
+            <a href="customers.html" class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg">
+                Customers
+            </a>
+            <a href="inventory.html" class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg">
+                Inventory
+            </a>
+            <a href="orders.html" class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg">
+                Orders
+            </a>
+            <a href="users.html" class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-white rounded-lg">
+                Users
+            </a>
+        </nav>
+        <div class="absolute bottom-0 px-4 py-2 space-y-5 text-xl text-gray-300">
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 hover:text-red-400 rounded-lg">
+                Logout
+            </button>
+        </div>
+    </aside>
+</body>
+
+</html>

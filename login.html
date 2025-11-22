@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full" data-include="../components/navbar.html"></nav>
+
+  <!-- Login Section -->
+  <section class="flex justify-center items-center min-h-screen bg-gray-50 px-6">
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg">
+      <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">Login</h2>
+
+      <form id="login-form" class="space-y-5">
+        <div>
+          <label for="email" class="block text-gray-500 font-medium mb-2 text-lg">Email</label>
+          <input type="email" id="email" placeholder="Enter your email"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700" required>
+        </div>
+
+        <div>
+          <label for="password" class="block text-gray-500 font-medium mb-2 text-lg">Password</label>
+          <input type="password" id="password" placeholder="Enter your password"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700" required>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-gray-800 text-white font-semibold py-2 rounded-lg hover:bg-gray-700 transition">
+          Login
+        </button>
+
+        <p class="text-center text-gray-600 mt-4">
+          Don’t have an account?
+          <a href="./signup.html" class="text-gray-900 font-semibold hover:underline">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div data-include="../components/footer.html"></div>
+
+  <script src="/assets/js/include.js"></script>
+  <script type="module" src="assets/js/api/auth.js"></script>
+</body>
+
+</html>

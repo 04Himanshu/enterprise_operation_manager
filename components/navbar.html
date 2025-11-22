@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="flex items-center justify-between p-6 cd:justify-around  bg-white shadow-md max-w-full">
+        <h1 class="text-2xl font-bold">EOM</h1>
+        <ul class="hidden cb:flex space-x-10 text-lg font-semibold">
+            <li><a href="/login.html">Login</a></li>
+            <li><a href="/signup.html">Signup</a></li>
+            <button id="theme-toggle" class="text-2xl cursor-pointer">
+                <i class="fa-solid fa-circle-half-stroke "></i>
+            </button>
+        </ul>
+
+        <button id="open-menu" class="flex cb:hidden pt-3">
+            <i class="fa-solid fa-bars text-xl text-gray-600"></i>
+        </button>
+
+        <!-- close menu -->
+        <div id="close-navbar" class="hidden bg-white inset-0 fixed cb:hidden transition-all duration-300 ease-in-out">
+            <div class="flex justify-between p-6 cd:justify-around  bg-white shadow-md">
+                <h1 class="text-2xl font-bold">EOM</h1>
+                <button id="close-menu" class="pt-3">
+                    <i class="fa-solid fa-xmark text-xl text-gray-600"></i>
+                </button>
+            </div>
+            <ul class="text-xl font-semibold space-y-10 mt-10">
+                <li class="hover:bg-gray-200 w-full p-6 rounded-2xl "><a href="login.html">Login</a></li>
+                <li class="hover:bg-gray-200 w-full p-6 rounded-2xl "><a href="signup.html">Signup</a></li>
+                <li class="hover:bg-gray-200 w-full p-6 rounded-2xl "><a href="#">Theme</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <script src="/assets/js/include.js"></script>
+    <!-- <script src="/assets/js/theme.js"></script> -->
+</body>
+
+</html>
